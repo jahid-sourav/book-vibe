@@ -1,0 +1,84 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "number": 1,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/1.png",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "releaseDate": "1997-06-26",
+      "description": "The first book in the Harry Potter series, introducing the world of magic, Hogwarts, and the battle against dark forces.",
+      "pages": 223,
+      "index": 1
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/2.png",
+      "title": "Harry Potter and the Chamber of Secrets",
+      "releaseDate": "1998-07-02",
+      "description": "The second year at Hogwarts, where Harry discovers the secrets of the Chamber of Secrets and confronts dark forces once again.",
+      "pages": 251,
+      "index": 2
+    },
+    {
+      "id": 3,
+      "number": 3,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/3.png",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "releaseDate": "1999-07-08",
+      "description": "Harry's third year at Hogwarts brings new challenges, including the escape of Sirius Black from Azkaban.",
+      "pages": 317,
+      "index": 3
+    },
+    {
+      "id": 4,
+      "number": 4,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/4.png",
+      "title": "Harry Potter and the Goblet of Fire",
+      "releaseDate": "2000-07-08",
+      "description": "The fourth installment in the series where Harry competes in the Triwizard Tournament and confronts Lord Voldemort.",
+      "pages": 636,
+      "index": 4
+    },
+    {
+      "id": 5,
+      "number": 5,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/5.png",
+      "title": "Harry Potter and the Order of the Phoenix",
+      "releaseDate": "2003-06-21",
+      "description": "Harry's fifth year at Hogwarts, where he discovers the Order of the Phoenix and prepares for the dark times ahead.",
+      "pages": 766,
+      "index": 5
+    },
+    {
+      "id": 6,
+      "number": 6,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/6.png",
+      "title": "Harry Potter and the Half-Blood Prince",
+      "releaseDate": "2005-07-16",
+      "description": "As the war against Voldemort intensifies, Harry learns about the past of the Half-Blood Prince.",
+      "pages": 607,
+      "index": 6
+    },
+    {
+      "id": 7,
+      "number": 7,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/7.png",
+      "title": "Harry Potter and the Deathly Hallows",
+      "releaseDate": "2007-07-21",
+      "description": "The final battle against Voldemort, where Harry and his friends fight to save the wizarding world.",
+      "pages": 759,
+      "index": 7
+    },
+    {
+      "id": 8,
+      "number": 8,
+      "cover": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/covers/8.png",
+      "title": "Fantastic Beasts and Where to Find Them",
+      "releaseDate": "2001-03-01",
+      "description": "A companion book to the Harry Potter series, detailing magical creatures and their habitats.",
+      "pages": 128,
+      "index": 8
+    }
+  ]
+}

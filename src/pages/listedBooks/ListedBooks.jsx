@@ -6,6 +6,23 @@ import useListedBooks from "../../hooks/useListedBooks";
 const ListedBooks = () => {
   const { readBooks, wishListBooks } = useListedBooks();
   const [currentTab, setCurrentTab] = useState(1);
+  const [sortCriteria, setSortCriteria] = useState("");
+
+  // Sorting function
+  const sortBooks = (books) => {
+    if (sortCriteria === "pages") {
+      return [...books].sort((a, b) => a.pages - b.pages);
+    } else if (sortCriteria === "year") {
+      return [...books].sort(
+        (a, b) => new Date(a.releaseDate) - new Date(b.releaseDate)
+      );
+    }
+    return books;
+  };
+
+  // Sorted books based on the selected criteria
+  const sortedReadBooks = sortBooks(readBooks);
+  const sortedWishListBooks = sortBooks(wishListBooks);
 
   return (
     <div className="py-5">
@@ -13,11 +30,16 @@ const ListedBooks = () => {
       <h1 className="text-center font-bold text-2xl">Books</h1>
 
       <div className="my-3 text-center">
-        <select className="p-2 rounded-md bg-black text-white text-lg">
-          <option disabled>Sort Books</option>
-          <option value="">Sort By Pages</option>
-          <option value="">Published Year</option>
-          <option value="">All</option>
+        <select
+          className="p-2 rounded-md bg-black text-white text-lg"
+          onChange={(e) => setSortCriteria(e.target.value)}
+        >
+          <option disabled selected>
+            Sort Books
+          </option>
+          <option value="pages">Sort By Pages</option>
+          <option value="year">Published Year</option>
+          <option value="all">All</option>
         </select>
       </div>
 
@@ -59,7 +81,7 @@ const ListedBooks = () => {
           {currentTab === 1 && (
             <div className="px-6 py-4" role="tabpanel">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {readBooks.map((book) => (
+                {sortedReadBooks.map((book) => (
                   <TabComponent key={book.id} book={book} />
                 ))}
               </div>
@@ -68,7 +90,7 @@ const ListedBooks = () => {
           {currentTab === 2 && (
             <div className="px-6 py-4" role="tabpanel">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {wishListBooks.map((book) => (
+                {sortedWishListBooks.map((book) => (
                   <TabComponent key={book.id} book={book} />
                 ))}
               </div>

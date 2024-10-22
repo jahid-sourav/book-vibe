@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import useListedBooks from "../hooks/useListedBooks";
 
 const TabComponent = ({ book }) => {
+  const { handleDeleteBook } = useListedBooks();
+
   return (
     <div className="p-3 border border-gray-600 rounded">
       <img
@@ -19,7 +22,10 @@ const TabComponent = ({ book }) => {
         Published Year : {book?.releaseDate}
       </p>
       <div className="flex gap-2">
-        <button className="px-3 py-1 bg-red-600 text-white text-lg font-semibold rounded-lg">
+        <button
+          className="px-3 py-1 bg-red-600 text-white text-lg font-semibold rounded-lg"
+          onClick={() => handleDeleteBook(book)}
+        >
           Remove
         </button>
         <Link

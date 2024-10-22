@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import { ListedContext } from "../context";
 
 const useListedBooks = () => {
@@ -59,7 +60,52 @@ const useListedBooks = () => {
     });
   };
 
-  return { handleReadBooks, handleWishListBooks, readBooks, wishListBooks };
+  const handleDeleteBook = (book) => {
+    const isInTheReadBooks = readBooks.find((item) => item.id === book.id);
+    const isInTheWishlistsBooks = wishListBooks.find(
+      (item) => item.id === book.id
+    );
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (isInTheReadBooks) {
+          const removeFromTheReadBooks = readBooks.filter(
+            (item) => item.id !== book.id
+          );
+          setReadBooks(removeFromTheReadBooks);
+          toast.success(`${book.title} Has Been Removed From The Read Books`);
+        } else if (isInTheWishlistsBooks) {
+          const removeFromTheWishlistBooks = wishListBooks.filter(
+            (item) => item.id !== book.id
+          );
+          setWishListBooks(removeFromTheWishlistBooks);
+          toast.success(
+            `${book.title} Has Been Removed From The Wishlist Books`
+          );
+        }
+        Swal.fire({
+          title: "Deleted!",
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  return {
+    handleReadBooks,
+    handleWishListBooks,
+    readBooks,
+    wishListBooks,
+    handleDeleteBook,
+  };
 };
 
 export default useListedBooks;
